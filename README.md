@@ -59,9 +59,18 @@ INA218 module: https://it.aliexpress.com/item/1005008949074776.html
 LCD TFT SPI 128x160px 1.8" with SD: https://it.aliexpress.com/item/1005004540472656.html  
 7806 Voltage Regulator: https://it.aliexpress.com/item/32948107192.html  
 
+In addition you will also need a 3-position switch, some resistors, capacitors and buttons as you can see in the schematic of this project.
 
+## The schematic and PCBs
+For the prototype i've used two pre-drilled boards wiring every connection with my soldering iron: 
+- the **main board** contains the power module, Arduino, and some board sockets single line at 2.54mm pin spacing connecting INA219, and the second board
+- the **second board** contains the LCD, 3 buttons, the 3-position switch and the potentiometer
 
+![The prototype](https://github.com/user-attachments/assets/581437dc-fc80-4f94-824b-86a7c32a3380)
 
+As you can see at the low-left in the picture above, i've also found an old buzzer so i decided to use it :blush:  
 
+In the last few days i designed the main board PCB using EasyEDA and as soon as possible i will replace the "wired" one with the new PCB but you can already find it attached to this project together with the related gerber files.
 
 ...under construction...
+
