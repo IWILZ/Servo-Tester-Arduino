@@ -44,11 +44,21 @@ Anyway this test can be useful if you compare some previous and well working on-
 
 ## Block diagram
 The project is divided in the following modules:
-- POWER
-- INA219
-- ARDUINO
-- LCD TFT
+- POWER: using a 7806 voltage regulator and some diodes, converts the Vext (9-12V) in 3 values 6.1, 5.4 and 4.7V  
+- INA219: is the ammeter module connected via I2C bus to Arduino
+- ARDUINO: even if i used a NANO, **you can use any kind of Arduino board**
+- LCD TFT: the lcd is a SPI TFT ST7735 128x160 with an SD schede that you can optionally use for your purpose 
 ![The architecture](https://github.com/user-attachments/assets/91aa9456-01fd-4069-8024-b8c7c6fb9855)
+
+## What you need to build the project
+Here are the main components of the project
+![Main components](https://github.com/user-attachments/assets/7374b642-2551-4e90-92f0-ce68356fadef)  
+You can buy them here:  
+Arduino Nano: https://it.aliexpress.com/item/1005007536628798.html  
+INA218 module: https://it.aliexpress.com/item/1005008949074776.html  
+LCD TFT SPI 128x160px 1.8" with SD: https://it.aliexpress.com/item/1005004540472656.htm  
+7806 Voltage Regulator: https://it.aliexpress.com/item/32948107192.html  
+
 
 
 
