@@ -10,8 +10,19 @@ A potentiometer, an external power supply monitoring (in the range 9-12Vcc) and 
 
 The servo movement under test can be MANUAL or AUTOMATIC and an additional function allows you to estimate the overall consumption of the on-board system (excluding the consumption of any electric engine).
 
-At the moment (due to power consumption) **this device can only be used for SMALL and MEDIUM sized servos** and in any case:
+At the moment (due to power consumption) **this device can only be used for SMALL and MEDIUM sized servos** and in any case:\
+**----> USE THIS PROJECT AT YOUR OWN RISK <----**
 
-## ******* USE THIS PROJECT AT YOUR OWN RISK ******* 
+## How it works
+Here's how the system works:
+
+- at the start it asks to chose the output voltage to test the servo
+- then it print a menu on the TFT where you can choose AUTO or MANUAL mode 
+- in MANUAL mode the servo is moved by the potentiometer and the moving range can be adjusted by 2 buttons from 100% (1000uSec pulse width) to 200% (2000uSec pulse width)
+
+
+
+
+
 
 ...under construction...
