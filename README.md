@@ -22,12 +22,16 @@ Here's how the system works:
 - in **AUTO** mode the device moves 10 times forward and backward the servo measuring the power consumption for each movement and at the end it shows the
   - IDLE Ampere mean value
   - RUN Ampere mean value
-  - Watt mean value
+  - Watt mean value 
 - there is also a third menu item: the **ON BOARD SYSTEM TEST** (see below)
 
 ### Manual
 In this mode you can test the smooth and slow movement of the servo looking also at every strange noise 
 ### Automatic
+The AUTO mode can be used to compare the power consumption of a servo with it's electrical specifications or to the power consumption of another one of the same size (for example 2 mini-servos) and kind (for example 2 digital servos).\
+For example let say that a servo during the test consumes 800mW and another similar servo consumes only 400mW. It is worth investigating the first servo, perhaps making further comparisons with other servos.\
+The graphic bars show the current of every movement (10 forward and 10 backward) and if the serso is good, they should have similar heights.\
+Power consumption is calculated as **Wrun=Irun*Vout**
 ### On borad system test
 To test the total power consumption (**EXCLUDING ANY ELECTRIC ENGINE**) you should use the dedicated function on your TX radio that moves every servo (sequentlially or altogether) or you can move them manually continuosly for 60 seconds using the TX. In this way you can test the whole power consumption of your on-board electronics (RX + all servos) keeping in mind that **1A is the maximum output current** and this information is usefull to choose the right on-board battery capacity (mAh)
  
