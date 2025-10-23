@@ -26,8 +26,6 @@ Here's how the system works:
   - Watt mean value 
 - there is also a third menu item: the **ON BOARD SYSTEM TEST** (see below)
 
-[^1]: Be careful when using 6.1V because some servos could be damaged by voltages higher than 5V (refer to the servo data sheet)
-
 ### Manual
 In this mode you can test the fluidity of the movement during slow movements looking also at every strange noise. A good servo should move in a fluid way and fairly quietly.
 ### Automatic
@@ -41,9 +39,9 @@ This test can help you to choose the right on-board battery (Wh) **because you w
 To run the test you should use the dedicated function on your TX radio that moves every servo (sequentlially or altogether) or you can manually **move them continuosly for 60 seconds** using the TX. In this way you can test the whole power consumption of your on-board electronics (RX + all servos)
 
 **But is this realistic?**  
-**Maybe NOT** because in real life probably your servos sometimes can make some strain (increasing consumption), other times they can sleep for a good time percentage without moving at all and sometimes you move more than one servo together so the real power consumption could be different from this value.
+**Maybe NOT** because in real life probably your servos sometimes can make some strain (increasing consumption), other times they can sleep for a huge time percentage without moving at all and sometimes you move more than one servo together so the real power consumption could be different from this value.
 
-Anyway this test can be useful if you compare some previous and well working on-board electronics with a known battery with a new one to determine the battery for the new on-board system.
+Anyway this test can be useful if you compare some previous and well working on-board electronics powered with a known battery with a new one to determine the rigth battery for the new on-board system.
 
 ## Block diagram
 The project is divided in the following modules:
@@ -66,15 +64,15 @@ In addition you will also need a **3-position switch, some resistors, capacitors
 
 ## The schematic and PCBs
 As you can see, the schematic attached to this project is quite simple.  
-For the **power stage**, the external source is connected directly to the 7806 input and to the Arduino's Vin. The output voltage of the 7806 (6.1V) is then reduced to 5.4 by a single diode and to 4.7 by 2 diodes. These 3 voltages go to the 3 position switch (trough JP2 connector) and the switch output is connected to the Vin+ pin of the INA219 module.
+For the **power stage**, the external source (9-12Vcc) is connected directly to the 7806 input and to the Arduino's Vin. The output voltage of the 7806 (6.1V) is then reduced to 5.4 by a single diode and to 4.7 by 2 diodes. These 3 voltages go to the 3 position switch (trough JP2 connector) and the switch output is connected to the Vin+ pin of the INA219 module.
 
 The Vin- pin of the INA219 is used as servo power source while the PWM signal is taken from Arduino's D9 pin.   
 The center of the potentiometer is connected to the A0 pin acting as an ADC.  
 The 3 push buttons are connected to A1, A2 and A3 as digital inputs with pull-up resistor (see program listing).  
 The R1 and R2 resistors are used to generate the voltage that the program uses to evaluate the external power supply.
 
-For the prototype i've used two pre-drilled boards wiring every connection with my soldering iron: 
-- the **main board** contains the power module, Arduino, and some in-line connectors at 2.54mm pin spacing connecting INA219, and the second board
+For the prototype i've used two pre-drilled boards wiring every connection with a soldering iron: 
+- the **main board** contains the power module, Arduino, and some in-line connectors[^2] at 2.54mm pin spacing connecting INA219, and the second board
 - the **second board** contains the LCD, 3 buttons, the 3-position switch and the potentiometer
 
 ![The prototype](https://github.com/user-attachments/assets/581437dc-fc80-4f94-824b-86a7c32a3380)
@@ -83,5 +81,10 @@ As you can see at the low-left in the picture above, i've also found an old buzz
 
 In the last few days **i designed the main board PCB using EasyEDA Standard** and as soon as possible i will replace the "wired" one with the new PCB but you can already find it attached to this project together with the related **gerber files**.
 
+##The sketch
+
 ...under construction...
+
+[^1]: Be careful when using 6.1V because some servos could be damaged by voltages higher than 5V (refer to the servo data sheet)
+[^2]: to be sure about the right direction of the connectors on the board, i introduced some reference pins in the connectors (each green cros in the schematic) to ensure that the connection between male and female can only occur in the correct direction.
 
