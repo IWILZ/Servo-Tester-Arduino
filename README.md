@@ -56,7 +56,7 @@ Here are the main components of the project
 You can buy them here:  
 Arduino Nano: https://it.aliexpress.com/item/1005007536628798.html  
 INA218 module: https://it.aliexpress.com/item/1005008949074776.html  
-LCD TFT SPI 128x160px 1.8" with SD: https://it.aliexpress.com/item/1005004540472656.htm  
+LCD TFT SPI 128x160px 1.8" with SD: https://it.aliexpress.com/item/1005004540472656.html  
 7806 Voltage Regulator: https://it.aliexpress.com/item/32948107192.html  
 
 
