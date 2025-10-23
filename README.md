@@ -11,7 +11,8 @@ A potentiometer, an external power supply monitoring (in the range **9-12Vcc**) 
 The servo movement under test can be MANUAL or AUTOMATIC and an additional function allows you to estimate the overall consumption of the on-board system (excluding the consumption of any electric engine).
 
 At the moment (due to power consumption) **this device can only be used for SMALL and MEDIUM sized servos** because **the upper limit is about 1A** and in any case:  
-**----> USE THIS PROJECT AT YOUR OWN RISK <----**
+
+> ***----> USE THIS PROJECT AT YOUR OWN RISK <----***
 
 ## How it works
 Here's how the system works:
@@ -64,12 +65,13 @@ LCD TFT SPI 128x160px 1.8" with SD: https://it.aliexpress.com/item/1005004540472
 In addition you will also need a **3-position switch, some resistors, capacitors, some connectors and 3 push-buttons** as you can see in the schematic of this project.
 
 ## The schematic and PCBs
-As you can see, the schematic of this project is quite simple.  
-For the **power stage**, the external source is connected directly to the 7806 input and to the Arduino's Vin. The voltage at the output pin of the 7806 (6.1V) is then reduced to 5.4 by a single diode and to 4.7 by 2 diodes. These 3 voltages go to the 3 position switch (trough JP2 connector) and the switch output is connected to the Vin+ pin of the INA219 module.
+As you can see, the schematic attached to this project is quite simple.  
+For the **power stage**, the external source is connected directly to the 7806 input and to the Arduino's Vin. The output voltage of the 7806 (6.1V) is then reduced to 5.4 by a single diode and to 4.7 by 2 diodes. These 3 voltages go to the 3 position switch (trough JP2 connector) and the switch output is connected to the Vin+ pin of the INA219 module.
 
 The Vin- pin of the INA219 is used as servo power source while the PWM signal is taken from Arduino's D9 pin.   
 The center of the potentiometer is connected to the A0 pin acting as an ADC.  
-The 3 push buttons are connected to A1, A2 and A3 as digital inputs with pull-up resistor (see program listing).
+The 3 push buttons are connected to A1, A2 and A3 as digital inputs with pull-up resistor (see program listing).  
+The R1 and R2 resistors are used to generate the voltage that the program uses to evaluate the external power supply.
 
 For the prototype i've used two pre-drilled boards wiring every connection with my soldering iron: 
 - the **main board** contains the power module, Arduino, and some in-line connectors at 2.54mm pin spacing connecting INA219, and the second board
