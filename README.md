@@ -1,7 +1,7 @@
 # Servo-Tester
 **How to test mini and medium servos before use them**
 
-![IMG_20250406_175301](https://github.com/user-attachments/assets/84dcd452-6d03-485d-880f-48bf342956b9)
+![Servo Tseter](https://github.com/user-attachments/assets/84dcd452-6d03-485d-880f-48bf342956b9)
 
 This project can help a R/C modeller to check and select the best servos for his model testing it's power consumption and work before mounting it into a model or a robot.
 To do this we will use a power source to provide about 6.1, 5.4 or 4.7Vcc an ammeter module **INA219** and a TFT color display (128x160px) connected to an **Arduino**.
@@ -42,9 +42,13 @@ To run the test you should use the dedicated function on your TX radio that move
 
 Anyway this test can be useful if you compare some previous and well working on-board electronics with a known battery with a new one to determine the battery for the new on-board system.
 
- 
-  
-
+## Block diagram
+The project is divided in the following modules:
+- POWER
+- INA219
+- ARDUINO
+- LCD TFT
+![The architecture](https://github.com/user-attachments/assets/91aa9456-01fd-4069-8024-b8c7c6fb9855)
 
 
 
