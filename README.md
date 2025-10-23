@@ -16,7 +16,7 @@ At the moment (due to power consumption) **this device can only be used for SMAL
 ## How it works
 Here's how the system works:
 
-- at the start it asks to choose the output voltage to test the servo (4.7, 5.4 or 6.1V)
+- at the start it asks to choose the output voltage to test the servo (4.7, 5.4 or 6.1V)[^1]
 - then it prints a menu on the TFT where you can choose AUTO or MANUAL mode 
 - in **MANUAL** mode the servo is moved by the potentiometer and the moving range can be adjusted by 2 buttons from 100%=1000uSec (max pulse width) to 200%=2000uSec  
 - in **AUTO** mode the device moves 10 times forward and backward the servo measuring the power consumption for each movement and at the end it shows the
@@ -24,6 +24,8 @@ Here's how the system works:
   - RUN Ampere mean value
   - Watt mean value 
 - there is also a third menu item: the **ON BOARD SYSTEM TEST** (see below)
+
+[^1]: Be careful when using 6.1V because some servos could be damaged by voltages higher than 5V (refer to the servo data sheet)
 
 ### Manual
 In this mode you can test the fluidity of the movement during slow movements looking also at every strange noise. A good servo should move in a fluid way and fairly quietly.
@@ -59,18 +61,25 @@ INA218 module: https://it.aliexpress.com/item/1005008949074776.html
 LCD TFT SPI 128x160px 1.8" with SD: https://it.aliexpress.com/item/1005004540472656.html  
 7806 Voltage Regulator: https://it.aliexpress.com/item/32948107192.html  
 
-In addition you will also need a 3-position switch, some resistors, capacitors and buttons as you can see in the schematic of this project.
+In addition you will also need a **3-position switch, some resistors, capacitors, some connectors and 3 push-buttons** as you can see in the schematic of this project.
 
 ## The schematic and PCBs
+As you can see, the schematic of this project is quite simple.  
+For the **power stage**, the external source is connected directly to the 7806 input and to the Arduino's Vin. The voltage at the output pin of the 7806 (6.1V) is then reduced to 5.4 by a single diode and to 4.7 by 2 diodes. These 3 voltages go to the 3 position switch (trough JP2 connector) and the switch output is connected to the Vin+ pin of the INA219 module.
+
+The Vin- pin of the INA219 is used as servo power source while the PWM signal is taken from Arduino's D9 pin.   
+The center of the potentiometer is connected to the A0 pin acting as an ADC.  
+The 3 push buttons are connected to A1, A2 and A3 as digital inputs with pull-up resistor (see program listing).
+
 For the prototype i've used two pre-drilled boards wiring every connection with my soldering iron: 
-- the **main board** contains the power module, Arduino, and some board sockets single line at 2.54mm pin spacing connecting INA219, and the second board
+- the **main board** contains the power module, Arduino, and some in-line connectors at 2.54mm pin spacing connecting INA219, and the second board
 - the **second board** contains the LCD, 3 buttons, the 3-position switch and the potentiometer
 
 ![The prototype](https://github.com/user-attachments/assets/581437dc-fc80-4f94-824b-86a7c32a3380)
 
 As you can see at the low-left in the picture above, i've also found an old buzzer so i decided to use it :blush:  
 
-In the last few days i designed the main board PCB using EasyEDA (standard) and as soon as possible i will replace the "wired" one with the new PCB but you can already find it attached to this project together with the related gerber files.
+In the last few days **i designed the main board PCB using EasyEDA Standard** and as soon as possible i will replace the "wired" one with the new PCB but you can already find it attached to this project together with the related **gerber files**.
 
 ...under construction...
 
