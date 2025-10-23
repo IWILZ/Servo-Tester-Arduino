@@ -32,8 +32,15 @@ The AUTO mode can be used to compare the power consumption of a servo with it's 
 For example let say that a servo during the test consumes 800mW and another similar servo consumes only 400mW. It is worth investigating the first servo, perhaps making further comparisons with other servos. In the same way a **Iidle** value too high should be investigated.\
 The graphic bars show the current of every movement (10 forward and 10 backward) and their heights are proportional to the current drain during each movement in the range 0-1000mA. If the servo is good, **they should have similar heights unless you make it strain mechanically by slowing down the movement with your hands**.\
 Power consumption is calculated as **Wrun=Irun*Vout**
-### On borad system test
-To test the total power consumption (**EXCLUDING ANY ELECTRIC ENGINE**) you should use the dedicated function on your TX radio that moves every servo (sequentlially or altogether) or you can move them manually continuosly for 60 seconds using the TX. In this way you can test the whole power consumption of your on-board electronics (RX + all servos) keeping in mind that **1A is the maximum output current** and this information is usefull to choose the right on-board battery capacity (mAh)
+### On board system test
+Before doing this test, **make sure you have disconnected any ELECTRIC ENGINE or other devices with high current consumption from the on-board system**.  
+This test can help you to choose the right on-board battery (Wh) **because you will get the energy supplied in 1 minute** to your on-board system **when your servos keep moving continuously** without mechanical strain.  
+
+But is this realistic?
+Maybe NOT because in real life probably your servos sometimes can make some strain (increasing consumption) but other times they can sleep for a good time percentage without moving at all so the real power consumption could be differnt from this value.
+
+so to have 1 hour of autonomy you can multiply the result by 60, for 2 hours by 120, etc.  
+To run the test you should use the dedicated function on your TX radio that moves every servo (sequentlially or altogether) or you can manually **move them continuosly for 60 seconds** using the TX. In this way you can test the whole power consumption of your on-board electronics (RX + all servos) keeping in mind that **1A is the maximum output current** and 
  
   
 
