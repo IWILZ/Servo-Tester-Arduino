@@ -26,11 +26,10 @@ Here's how the system works:
 - there is also a third menu item: the **ON BOARD SYSTEM TEST** (see below)
 
 ### Manual
-In this mode you can test the smooth and slow movement of the servo looking also at every strange noise 
+In this mode you can test the fluidity of the movement during slow movements looking also at every strange noise. A good servo should move in a fluid way and fairly quietly.
 ### Automatic
 The AUTO mode can be used to compare the power consumption of a servo with it's electrical specifications or to the power consumption of another one of the same size (for example 2 mini-servos) and kind (for example 2 digital servos).\
-For example let say that a servo during the test consumes 800mW and another similar servo consumes only 400mW. It is worth investigating the first servo, perhaps making further comparisons with other servos.\
-In the same way a **Iidle** value too high should be investigated.\
+For example let say that a servo during the test consumes 800mW and another similar servo consumes only 400mW. It is worth investigating the first servo, perhaps making further comparisons with other servos. In the same way a **Iidle** value too high should be investigated.\
 The graphic bars show the current of every movement (10 forward and 10 backward) and their heights are proportional to the current drain during each movement in the range 0-1000mA. If the servo is good, **they should have similar heights unless you make it strain mechanically by slowing down the movement with your hands**.\
 Power consumption is calculated as **Wrun=Irun*Vout**
 ### On borad system test
