@@ -70,7 +70,7 @@ For the prototype i've used two pre-drilled boards wiring every connection with 
 
 As you can see at the low-left in the picture above, i've also found an old buzzer so i decided to use it :blush:  
 
-In the last few days i designed the main board PCB using EasyEDA and as soon as possible i will replace the "wired" one with the new PCB but you can already find it attached to this project together with the related gerber files.
+In the last few days i designed the main board PCB using EasyEDA (standard) and as soon as possible i will replace the "wired" one with the new PCB but you can already find it attached to this project together with the related gerber files.
 
 ...under construction...
 
