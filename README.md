@@ -12,3 +12,5 @@ The servo movement under test can be MANUAL or AUTOMATIC and an additional funct
 At the moment (due to power consumption) **this device can only be used for SMALL and MEDIUM sized servos** and in any case:
 
 ## ******* USE THIS PROJECT AT YOUR OWN RISK ******* 
+
+...under construction...
