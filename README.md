@@ -27,7 +27,7 @@ Here's how the system works:
 - there is also a third menu item: the **ON BOARD SYSTEM TEST** (see below)
 
 ### Manual
-In this mode you can test the fluidity of the movement during slow movements looking also at every strange noise. A good servo should move in a fluid way and fairly quietly.
+In this mode you can test the fluidity of the movement during slow movements looking also at every strange noise. **A good servo should move in a fluid way and fairly quietly**.
 ### Automatic
 The AUTO mode can be used to compare the power consumption of a servo with it's electrical specifications or to the power consumption of another one of the same size (for example 2 mini-servos) and kind (for example 2 digital servos).\
 For example let say that a servo during the test consumes 800mW and another similar servo consumes only 400mW. It is worth investigating the first servo, perhaps making further comparisons with other servos. In the same way a **Iidle** value too high should be investigated.\
@@ -60,13 +60,13 @@ INA218 module: https://it.aliexpress.com/item/1005008949074776.html
 LCD TFT SPI 128x160px 1.8" with SD: https://it.aliexpress.com/item/1005004540472656.html  
 7806 Voltage Regulator: https://it.aliexpress.com/item/32948107192.html  
 
-In addition you will also need a **3-position switch, some resistors, capacitors, some connectors and 3 push-buttons** as you can see in the schematic of this project.
+In addition you also need a **3-position switch, some resistors, capacitors, some connectors and 3 push-buttons** as you can see in the schematic of this project.
 
 ## The MAIN schematic and PCB
 As you can see, the schematic attached to this project is quite simple.  
 For the **power stage**, the external source (9-12Vcc) is connected directly to the 7806 input and to the Arduino's Vin. The output voltage of the 7806 (6.1V) is then reduced to 5.4 by a single diode and to 4.7 by 2 diodes. These 3 voltages go to the 3 position switch (trough JP2 connector) and the switch output is connected to the Vin+ pin of the INA219 module.
 
-The Vin- pin of the INA219 is used as servo power source while the PWM signal is taken from Arduino's D9 pin.   
+The Vin- pin of the INA219 is used as servo power source while the PWM control signal is taken from Arduino's D9 pin.   
 The center of the potentiometer is connected to the A0 pin acting as an ADC.  
 The 3 push buttons are connected to A1, A2 and A3 as digital inputs with pull-up resistor (see program listing).  
 The R1 and R2 resistors are used to generate the voltage that the program uses to evaluate the external power supply.
@@ -92,16 +92,17 @@ In fact the program checks the V external value but this depends on the tolleran
 #define   VEXT_DIV        64.67   // 
 #define   MIN_VIN         8.0     // Minimum Vin voltage
 ```
-To do this you have to use a tester on the external source and slowly increase or decrease the **VEXT_DIV** until the Vin shown on the LCD is correct.  
+To do this you have to use a tester on the external source and slowly increase or decrease the **VEXT_DIV** recompiling each time, until the Vin shown on the LCD is correct.  
 As you can see, you can also refine the MIN_VIN but don't set it below 8.0V (which is the minimum external voltage below which the Servo Tester signals an audio alarm) because there is a voltage drop across the 7806.
 
 The "core" of this project is the **INA219** module with the library **Adafruit_INA219.h** but during the develop **i had to modify a line in that library to match my needs** (see below).  
 The reason is that in default mode the INA219 uses a sort of continuous loop reading a set of current samples at the end of which it calculates the average value, but in this way this value can be influenced by the fact that the servo may have stopped during the sampling or may instead have moved continuously producing 2 very different values.  
-In my project, however, **i need to start the sampling only when i want it to** (i.e. when the servo starts moving) producing consistent values (**see the call to StartInaSampling() inside the ServoRun() function**).  
+In my project instead, **i need to start the sampling only when i want it to** (i.e. when the servo starts moving) producing consistent values (**see the call to StartInaSampling() inside the ServoRun() function**).  
 
 ### Modified version of Adafruit_INA219.cpp 
-As explained above i had also to modify the library to allow to start a single sampling collection and this was done setting a **"triggered" mode**[^3].  
-To do this modify:
+As explained above i had to modify the library to allow to start a single sampling collection and this was done setting a **"triggered" mode**[^3].  
+
+To do this you have to:
 1. search into your library directory and edit **Adafruit_INA219.cpp** with a text editor
 2. search the string **Adafruit_INA219::setCalibration_32V_2A()**
 3. scroll down until you find 
@@ -118,7 +119,7 @@ uint16_t config = INA219_CONFIG_BVOLTAGERANGE_32V |
                     INA219_CONFIG_SADCRES_12BIT_128S_69MS |
                     INA219_CONFIG_MODE_SANDBVOLT_TRIGGERED;
 ```
-In this way the program will use a **"triggered" sampling at 12bit/sample collecting 128 samples in about 69mSec** :exclamation:
+In this way the program will use a **"triggered" sampling at 12bit/sample collecting 128 samples in about 69mSec** :exclamation::exclamation::exclamation:
 
 ## Using a LiPo battery for power supply
 As you see the Servo Tester needs something like a 9-12Vcc of external power to work. This can be done using a small wall power supply or a battery, and in this case **a small 3S LiPo** can be a good choice, and even better if connected to a **charging module** as in the following picture.
@@ -126,6 +127,11 @@ As you see the Servo Tester needs something like a 9-12Vcc of external power to 
 So for this purpose you could buy something like these: 
 - Step-up charger: https://it.aliexpress.com/item/1005007214123033.html
 - LiPo 3S 650mAh: https://www.amazon.it/dp/B08535D7H4
+
+## Conclusions
+I hope this project can be nice and useful both for a model-maker or a robotic enthusiast, but maybe can be nice also to test some modules like INA219, LCD TFT SPI 128x160px 1.8" with SD and of course Arduino.  
+It's also quite cheap because if you already have some resistors, buttons and a battery in your drawer, **the total cost of the components should be less than 15-20$**  
+**HAVE FUN!!!**
 
 [^1]: Be careful when using 6.1V because some servos could be damaged by voltages higher than 5V (refer to the servo data sheet)
 [^2]: To be sure about the right direction of the connectors on the board, i introduced some reference pins in the connectors (each green cros in the schematic) to ensure that the connection between male and female can only occur in the correct direction.
