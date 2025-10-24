@@ -99,8 +99,8 @@ In my project, however, **i need to start the sampling only when i want it to** 
 ### Modified version of Adafruit_INA219.cpp 
 As explained above i had also to modify the library to allow to start a single sampling collection and this was done setting a **"triggered" mode**.  
 To do this modify:
-1. edit **Adafruit_INA219.cpp**
-2. search **Adafruit_INA219::setCalibration_32V_2A()**
+1. search into your library directory and edit **Adafruit_INA219.cpp** with a text editor
+2. search the string **Adafruit_INA219::setCalibration_32V_2A()**
 3. scroll down until you find 
 ```
 uint16_t config = INA219_CONFIG_BVOLTAGERANGE_32V |
@@ -115,9 +115,9 @@ uint16_t config = INA219_CONFIG_BVOLTAGERANGE_32V |
                     INA219_CONFIG_SADCRES_12BIT_128S_69MS |
                     INA219_CONFIG_MODE_SANDBVOLT_TRIGGERED;
 ```
-In this way the program can use a "triggered" sampling at 12bit/sample collecting 128 samples in about 69mSec :exclamation:
+In this way the program will use a **"triggered" sampling at 12bit/sample collecting 128 samples in about 69mSec** :exclamation:
 
-...under construction...
+
 
 [^1]: Be careful when using 6.1V because some servos could be damaged by voltages higher than 5V (refer to the servo data sheet)
 [^2]: to be sure about the right direction of the connectors on the board, i introduced some reference pins in the connectors (each green cros in the schematic) to ensure that the connection between male and female can only occur in the correct direction.
