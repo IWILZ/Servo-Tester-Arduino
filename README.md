@@ -97,7 +97,7 @@ The reason is that in default mode the INA219 uses a sort of continuous loop rea
 In my project, however, **i need to start the sampling only when i want it to** (i.e. when the servo starts moving) producing consistent values (**see the call to StartInaSampling() inside the ServoRun() function**).  
 
 ### Modified version of Adafruit_INA219.cpp 
-As explained above i had also to modify the library to allow to start a single sampling collection and this was done setting a **"triggered" mode**.  
+As explained above i had also to modify the library to allow to start a single sampling collection and this was done setting a **"triggered" mode**[^3].  
 To do this modify:
 1. search into your library directory and edit **Adafruit_INA219.cpp** with a text editor
 2. search the string **Adafruit_INA219::setCalibration_32V_2A()**
@@ -120,5 +120,6 @@ In this way the program will use a **"triggered" sampling at 12bit/sample collec
 
 
 [^1]: Be careful when using 6.1V because some servos could be damaged by voltages higher than 5V (refer to the servo data sheet)
-[^2]: to be sure about the right direction of the connectors on the board, i introduced some reference pins in the connectors (each green cros in the schematic) to ensure that the connection between male and female can only occur in the correct direction.
+[^2]: To be sure about the right direction of the connectors on the board, i introduced some reference pins in the connectors (each green cros in the schematic) to ensure that the connection between male and female can only occur in the correct direction.
+[^3]: See also https://electronics.stackexchange.com/questions/515455/ina219-current-sensor-not-working-properly-with-dc-motor 
 
