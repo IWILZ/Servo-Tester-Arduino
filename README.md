@@ -81,7 +81,41 @@ As you can see at the low-left in the picture above, i've also found an old buzz
 
 In the last few days **i designed the main board PCB using EasyEDA Standard** and as soon as possible i will replace the "wired" one with the new PCB but you can already find it attached to this project together with the related **gerber files**.
 
-##The sketch
+## The sketch
+Once the project is complete, you can compile and upload the program **Servo_Tester_eng _4.0.ino** using for example the **Arduino IDE** and then you need to do a simple tuning.
+In fact the program checks the V external value but this depends on the tollerance of R1 and R2 values so you need to trim it at line 80 of the sketch.
+```
+// Trim the following parameter to match the right Vexternal (Vin) value
+#define   VEXT_DIV        64.67   // 
+#define   MIN_VIN         8.0     // Minimum Vin voltage
+```
+To do this you have to use a tester on the external source and slowly increase or decrease the **VEXT_DIV** until the Vin shown on the LCD is correct.  
+As you can see, you can also refine the MIN_VIN but don't set it below 8.0V because there is a voltage drop across the 7806.
+
+The "core" of this project is the **INA219** module with the library **Adafruit_INA219.h** but during the develop **i had to modify a line in that library to match my needs** (see below).  
+The reason is that in default mode the INA219 uses a sort of continuous loop reading a set of current samples at the end of which it calculates the average value, but in this way this value can be influenced by the fact that the servo may have stopped during the sampling or may instead have moved continuously producing 2 very different values.  
+In my project, however, **i need to start the sampling only when i want it to** (i.e. when the servo starts moving) producing consistent values (**see the call to StartInaSampling() inside the ServoRun() function**).  
+
+### Modified version of Adafruit_INA219.cpp 
+As explained above i had also to modify the library to allow to start a single sampling collection and this was done setting a **"triggered" mode**.  
+To do this modify:
+1. edit **Adafruit_INA219.cpp**
+2. search **Adafruit_INA219::setCalibration_32V_2A()**
+3. scroll down until you find 
+```
+uint16_t config = INA219_CONFIG_BVOLTAGERANGE_32V |
+                    INA219_CONFIG_GAIN_8_320MV | INA219_CONFIG_BADCRES_12BIT |
+                    INA219_CONFIG_SADCRES_12BIT_1S_532US |
+                    INA219_CONFIG_MODE_SANDBVOLT_CONTINUOUS;
+```
+4. substitute the previous line with 
+```
+uint16_t config = INA219_CONFIG_BVOLTAGERANGE_32V |
+                    INA219_CONFIG_GAIN_8_320MV | INA219_CONFIG_BADCRES_12BIT |
+                    INA219_CONFIG_SADCRES_12BIT_128S_69MS |
+                    INA219_CONFIG_MODE_SANDBVOLT_TRIGGERED;
+```
+In this way the program can use a "triggered" sampling at 12bit/sample collecting 128 samples in about 69mSec :exclamation:
 
 ...under construction...
 
