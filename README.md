@@ -120,7 +120,12 @@ uint16_t config = INA219_CONFIG_BVOLTAGERANGE_32V |
 ```
 In this way the program will use a **"triggered" sampling at 12bit/sample collecting 128 samples in about 69mSec** :exclamation:
 
-
+## Using a LiPo battery for power supply
+As you see the Servo Tester needs something like a 9-12Vcc of external power to work. This can be done using a small wall power supply or a battery, and in this case **a small 3S LiPo** can be a good choice, and even better if connected to a **charging module** as in the following picture.
+![Battery](https://github.com/user-attachments/assets/a99dad17-4431-4248-a1f5-30a6f1a0b07e)  
+So for this purpose you could buy something like these: 
+- Step-up charger: https://it.aliexpress.com/item/1005007214123033.html
+- LiPo 3S 650mAh: https://www.amazon.it/dp/B08535D7H4
 
 [^1]: Be careful when using 6.1V because some servos could be damaged by voltages higher than 5V (refer to the servo data sheet)
 [^2]: To be sure about the right direction of the connectors on the board, i introduced some reference pins in the connectors (each green cros in the schematic) to ensure that the connection between male and female can only occur in the correct direction.
