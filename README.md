@@ -62,7 +62,7 @@ LCD TFT SPI 128x160px 1.8" with SD: https://it.aliexpress.com/item/1005004540472
 
 In addition you will also need a **3-position switch, some resistors, capacitors, some connectors and 3 push-buttons** as you can see in the schematic of this project.
 
-## The schematic and PCB
+## The MAIN schematic and PCB
 As you can see, the schematic attached to this project is quite simple.  
 For the **power stage**, the external source (9-12Vcc) is connected directly to the 7806 input and to the Arduino's Vin. The output voltage of the 7806 (6.1V) is then reduced to 5.4 by a single diode and to 4.7 by 2 diodes. These 3 voltages go to the 3 position switch (trough JP2 connector) and the switch output is connected to the Vin+ pin of the INA219 module.
 
@@ -80,6 +80,9 @@ For the prototype i've used two pre-drilled boards wiring every connection with 
 As you can see at the low-left in the picture above, i've also found an old buzzer so i decided to use it :blush:  
 
 In the last few days **i designed the main board PCB using EasyEDA Standard** and as soon as possible i will replace the "wired" one with the new PCB but you can already find it attached to this project together with the related **gerber files**.
+
+## Schematic and PCB of the LCD & Buttons board
+The secondary board contains the LCD and the 3 push-buttons and you can find the schematic, the PCB draw and the GERBER file on the file list of this project but consider that i haven't tested them yet.
 
 ## The sketch
 Once the project is complete, you can compile and upload the program **Servo_Tester_eng _4.0.ino** using for example the **Arduino IDE** and then you need to do a simple tuning.
