@@ -93,7 +93,7 @@ In fact the program checks the V external value but this depends on the tolleran
 #define   MIN_VIN         8.0     // Minimum Vin voltage
 ```
 To do this you have to use a tester on the external source and slowly increase or decrease the **VEXT_DIV** until the Vin shown on the LCD is correct.  
-As you can see, you can also refine the MIN_VIN but don't set it below 8.0V because there is a voltage drop across the 7806.
+As you can see, you can also refine the MIN_VIN but don't set it below 8.0V (which is the minimum external voltage below which the Servo Tester signals an audio alarm) because there is a voltage drop across the 7806.
 
 The "core" of this project is the **INA219** module with the library **Adafruit_INA219.h** but during the develop **i had to modify a line in that library to match my needs** (see below).  
 The reason is that in default mode the INA219 uses a sort of continuous loop reading a set of current samples at the end of which it calculates the average value, but in this way this value can be influenced by the fact that the servo may have stopped during the sampling or may instead have moved continuously producing 2 very different values.  
