@@ -129,7 +129,7 @@ So for this purpose you could buy something like these:
 - LiPo 3S 650mAh: https://www.amazon.it/dp/B08535D7H4
 
 ## Conclusions
-I hope this project can be nice and useful both for a model-maker or a robotic enthusiast, but maybe can be nice also to test some modules like INA219, LCD TFT SPI 128x160px 1.8" with SD and of course Arduino.  
+I hope this project can be nice and useful both for a model-maker or a robotic enthusiast, but maybe can be nice also to try some modules like INA219, LCD TFT SPI 128x160px 1.8" with SD and of course Arduino.  
 It's also quite cheap because if you already have some resistors, buttons and a battery in your drawer, **the total cost of the components should be less than 15-20$**  
 > ***HAVE FUN!!!***
 
