@@ -135,6 +135,6 @@ It's also quite cheap because if you already have some resistors, buttons and a 
 > ***HAVE FUN!!!***
 
 [^1]: Be careful when using 6.1V because some servos could be damaged by voltages higher than 5V (refer to the servo data sheet)
-[^2]: To be sure about the right direction of the connectors on the board, i introduced some reference pins in the connectors (each green cros in the schematic) to ensure that the connection between male and female can only occur in the correct direction.
+[^2]: To be sure about the right direction of the connectors on the board, i introduced some reference pins in the connectors (each green cross in the schematic) to ensure that the connection between male and female can only occur in the correct direction.
 [^3]: See also https://electronics.stackexchange.com/questions/515455/ina219-current-sensor-not-working-properly-with-dc-motor 
 
