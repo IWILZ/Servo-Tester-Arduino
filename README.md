@@ -1,10 +1,12 @@
 # Servo-Tester
 **How to test mini and medium servos before use them**
 
-![Servo Tseter](https://github.com/user-attachments/assets/84dcd452-6d03-485d-880f-48bf342956b9)
+![Servo Tester](https://github.com/user-attachments/assets/c0df6db4-e75d-4d26-8744-ae14c94835dd)
 
-This project can help a R/C modeller to check and select the best servos for his model testing it's power consumption and work before mounting it into a model or a robot.
-To do this we will use a power source to provide about 6.1, 5.4 or 4.7Vcc an ammeter module **INA219** and a TFT color display (128x160px) connected to an **Arduino**.
+This project can help a R/C model maker or robotic enthusiast to check and select the best servo testing it's power consumption and behavior before using it into a model or a robot.  
+> **Just as an introduction, watch this short video: https://www.youtube.com/watch?v=6mhsesQXBho**
+
+To do it's work, Servo Tester uses a power source to provide about 6.1, 5.4 or 4.7Vcc an ammeter module **INA219** and a TFT color display (128x160px) connected to an **Arduino**.
 
 A potentiometer, an external power supply (in the range **9-12Vcc**) and some buttons complete the device.
 
