@@ -1,4 +1,4 @@
-# Servo-Tester
+# Servo Tester with Arduino
 **How to test mini and medium servos before use them**
 
 ![Servo Tester](https://github.com/user-attachments/assets/c0df6db4-e75d-4d26-8744-ae14c94835dd)
