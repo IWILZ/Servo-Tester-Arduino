@@ -153,10 +153,10 @@ unsigned int color;
   tft.fillRect(n_bar*8+1,TFT_HEIGHT-(int)h_bar-2,6,(int)h_bar,color);
 } // DrawINAbar()
 ```
-Here you can see that the maximum bar eight is set to **InaCurrent_mA/1000** so if you want to reach 2A you can change **1000** to **2000**. 
+Here you can see that the maximum bar height is proportional to **InaCurrent_mA/1000** so if you want to reach 2A you can change **1000** to **2000**. 
 Likewise, since the color of the bars depends on the current, you will also need to change the values **333->666** and **666->1333**  
 
-If you decide to raise the current limit, i recommend to **install a heatsink on the 7806** voltage regulator. 
+Finally, if you decide to raise the current limit, is better to **install a heatsink on the 7806** voltage regulator. 
 
 ## Using a LiPo battery for external power supply
 As you see the Servo Tester needs something like a 9-12Vcc of external power to work. This can be done using a small wall power supply or a battery, and in this case **a small 3S LiPo** can be a good choice, and even better if connected to a **step-up charging module** as in the following picture.  
