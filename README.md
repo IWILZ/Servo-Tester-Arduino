@@ -159,7 +159,7 @@ Likewise, since the color of the bars depends on the current, you will also need
 Finally, if you decide to raise the current limit, is better to **install a heatsink on the 7806** voltage regulator. 
 
 ## Using a LiPo battery for external power supply
-As you see the Servo Tester needs something like a 9-12Vcc of external power to work. This can be done using a small wall power supply or a battery, and in this case **a small 3S LiPo** can be a good choice, and even better if connected to a **step-up charging module** as in the following picture.  
+As you see the Servo Tester needs something like a 9-12Vcc of external power to work. This can be provided by a small wall adapter or a battery, and in this case, **a small 3S LiPo** battery can be a good choice, even better if connected to a **step-up charging module** capable of charging it from a USB port, as in the following image.  
 ![Battery](https://github.com/user-attachments/assets/a99dad17-4431-4248-a1f5-30a6f1a0b07e)  
 So for this purpose you could buy something like these: 
 - Step-up charger: https://it.aliexpress.com/item/1005007214123033.html
