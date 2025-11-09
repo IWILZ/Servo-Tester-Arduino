@@ -127,8 +127,8 @@ uint16_t config = INA219_CONFIG_BVOLTAGERANGE_32V |
 ```
 In this way the program will use a **"triggered" sampling at 12bit/sample collecting 128 samples in about 69mSec**:exclamation::exclamation::exclamation:
 
-### Increasing current limit of the tester
-As mentioned above even if the current limit of the program is 1A, you could rise it at 2A. In fact **the INA219 module is already set to reach 2A current limit** as you cen see at:
+### Increasing current limit 
+As mentioned above even if the current limit of the program is 1A, you could rise it at 2A because **the INA219 module is already set to reach 2A limit** as you cen see at:
 ```
 void StartInaSampling() {
   ina219.setCalibration_32V_2A();     // Start the sampling
@@ -154,7 +154,9 @@ unsigned int color;
 } // DrawINAbar()
 ```
 Here you can see that the maximum bar eight is set to **InaCurrent_mA/1000** so if you want to reach 2A you can change **1000** to **2000**. 
-Likewise, since the color of the bars depends on the current, you will also need to change the values **333->666** and **666->1333**
+Likewise, since the color of the bars depends on the current, you will also need to change the values **333->666** and **666->1333**  
+
+If you decide to raise the current limit, i recommend to **install a heatsink on the 7806** voltage regulator. 
 
 ## Using a LiPo battery for external power supply
 As you see the Servo Tester needs something like a 9-12Vcc of external power to work. This can be done using a small wall power supply or a battery, and in this case **a small 3S LiPo** can be a good choice, and even better if connected to a **step-up charging module** as in the following picture.  
