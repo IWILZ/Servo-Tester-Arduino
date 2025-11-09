@@ -12,13 +12,12 @@ This project can help a R/C model maker or robotic enthusiast to check and selec
 > **Just as an introduction, watch this short video: https://www.youtube.com/watch?v=6mhsesQXBho**
 
 To do it's work, Servo Tester uses a power source to provide about 6.1, 5.4 or 4.7Vcc an ammeter module **INA219** and a TFT color display (128x160px) connected to an **Arduino**.
+A potentiometer, an external power supply (in the **9-12Vcc** range) and some buttons complete the device.
 
-A potentiometer, an external power supply (in the range **9-12Vcc**) and some buttons complete the device.
+The servo movement under test can be **MANUAL** or **AUTOMATIC** and an additional function allows you to estimate the overall consumption of the on-board system (excluding the consumption of any electric engine).  
+At the moment **this Servo Tester can be used for SMALL and MEDIUM size servos** because, for my personal needs, **i've set the current limit at about 1A** even if **you can push it to 2A** (see below).  
 
-The servo movement under test can be MANUAL or AUTOMATIC and an additional function allows you to estimate the overall consumption of the on-board system (excluding the consumption of any electric engine).
-
-At the moment (due to power consumption) **this device can only be used for SMALL and MEDIUM sized servos** because **the upper limit is about 1A** even if **you can push the limit to 2A** (see below) but in any case:  
-
+In any case:  
 > ***----> USE THIS PROJECT AT YOUR OWN RISK <----***
 
 ## How it works
