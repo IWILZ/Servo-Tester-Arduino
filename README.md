@@ -17,14 +17,14 @@ A potentiometer, an external power supply (in the range **9-12Vcc**) and some bu
 
 The servo movement under test can be MANUAL or AUTOMATIC and an additional function allows you to estimate the overall consumption of the on-board system (excluding the consumption of any electric engine).
 
-At the moment (due to power consumption) **this device can only be used for SMALL and MEDIUM sized servos** because **the upper limit is about 1A** (even if **you can rise this limit to 2A**) and in any case:  
+At the moment (due to power consumption) **this device can only be used for SMALL and MEDIUM sized servos** because **the upper limit is about 1A** even if **you can push the limit to 2A** (see below) but in any case:  
 
 > ***----> USE THIS PROJECT AT YOUR OWN RISK <----***
 
 ## How it works
 Here's how the system works:
 
-- at the start it asks to choose the output voltage to test the servo (4.7, 5.4 or 6.1V)[^1]
+- at the start the tester asks to choose the output voltage to test the servo (4.7, 5.4 or 6.1V)[^1]
 - then it prints a menu on the TFT where you can choose AUTO or MANUAL mode 
 - in **MANUAL** mode the servo is moved by the potentiometer and the moving range can be adjusted by 2 buttons from 100%=1000uSec (max pulse width) to 200%=2000uSec  
 - in **AUTO** mode the device moves 10 times forward and backward the servo measuring the power consumption for each movement and at the end it shows the
@@ -127,6 +127,35 @@ uint16_t config = INA219_CONFIG_BVOLTAGERANGE_32V |
                     INA219_CONFIG_MODE_SANDBVOLT_TRIGGERED;
 ```
 In this way the program will use a **"triggered" sampling at 12bit/sample collecting 128 samples in about 69mSec**:exclamation::exclamation::exclamation:
+
+### Increasing current limit of the tester
+As mentioned above even if the current limit of the program is 1A, you could rise it at 2A. In fact **the INA219 module is already set to reach 2A current limit** as you cen see at:
+```
+void StartInaSampling() {
+  ina219.setCalibration_32V_2A();     // Start the sampling
+} // StartInaSampling()  
+```
+So basically the 1A limit is inherent to the graphic length of the colored bars during the Automatic Servo Test function but you can modify it in the following function:
+```
+/***********************************************************
+ DrawINAbar()
+ Draws a vertical colored bar proportional to the current
+ drawn by the servo
+***********************************************************/
+void DrawINAbar(byte n_bar){
+unsigned long h_bar;
+unsigned int color;
+
+  h_bar=(TFT_HEIGHT-43)*InaCurrent_mA/1000;
+  // the color depends on the current drawn
+  color=ST77XX_GREEN;
+  if (InaCurrent_mA>333.0) color=ST77XX_ORANGE;
+  if (InaCurrent_mA>666.0) color=ST77XX_RED;
+  tft.fillRect(n_bar*8+1,TFT_HEIGHT-(int)h_bar-2,6,(int)h_bar,color);
+} // DrawINAbar()
+```
+Here you can see that the maximum bar eight is set to **InaCurrent_mA/1000** so if you want to reach 2A you can change **1000** to **2000**. 
+Likewise, since the color of the bars depends on the current, you will also need to change the values **333->666** and **666->1333**
 
 ## Using a LiPo battery for external power supply
 As you see the Servo Tester needs something like a 9-12Vcc of external power to work. This can be done using a small wall power supply or a battery, and in this case **a small 3S LiPo** can be a good choice, and even better if connected to a **step-up charging module** as in the following picture.  
