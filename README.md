@@ -5,7 +5,7 @@
 
 ### Software Version Log
 - V4.0 - Initial version
-- V4.1 - Added sound when the start of program, optimized ManualTestServo() function and trimmed some delays at the program start
+- V4.1 - Added sound when the program starts, optimized ManualTestServo() function and trimmed some delays at the beginning
 
 ## Why this project
 This project can help a R/C model maker or robotic enthusiast to check and select the best servo testing it's power consumption and behavior before using it into a model or a robot.  
