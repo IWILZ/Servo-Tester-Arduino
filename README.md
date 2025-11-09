@@ -128,7 +128,7 @@ uint16_t config = INA219_CONFIG_BVOLTAGERANGE_32V |
 In this way the program will use a **"triggered" sampling at 12bit/sample collecting 128 samples in about 69mSec**:exclamation::exclamation::exclamation:
 
 ### Increasing current limit 
-As mentioned above even if the current limit of the program is 1A, you could rise it at 2A because **the INA219 module is already set to reach 2A limit** as you cen see at:
+As mentioned above even if the current limit of the program is 1A, you could rise it at 2A because **the INA219 module is already set to reach 2A limit** as you can see at:
 ```
 void StartInaSampling() {
   ina219.setCalibration_32V_2A();     // Start the sampling
