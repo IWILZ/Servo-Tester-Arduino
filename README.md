@@ -17,7 +17,7 @@ A potentiometer, an external power supply (in the range **9-12Vcc**) and some bu
 
 The servo movement under test can be MANUAL or AUTOMATIC and an additional function allows you to estimate the overall consumption of the on-board system (excluding the consumption of any electric engine).
 
-At the moment (due to power consumption) **this device can only be used for SMALL and MEDIUM sized servos** because **the upper limit is about 1A** and in any case:  
+At the moment (due to power consumption) **this device can only be used for SMALL and MEDIUM sized servos** because **the upper limit is about 1A** (even if **you can rise this limit to 2A**) and in any case:  
 
 > ***----> USE THIS PROJECT AT YOUR OWN RISK <----***
 
