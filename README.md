@@ -3,6 +3,8 @@
 
 ![Servo Tester](https://github.com/user-attachments/assets/c0df6db4-e75d-4d26-8744-ae14c94835dd)
 
+> **Last version V1.4 - Added sound at the start of program, optimized ManualTestServo() and trimemd some delay at the program start**
+
 This project can help a R/C model maker or robotic enthusiast to check and select the best servo testing it's power consumption and behavior before using it into a model or a robot.  
 > **Just as an introduction, watch this short video: https://www.youtube.com/watch?v=6mhsesQXBho**
 
